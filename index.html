@@ -266,18 +266,8 @@
         /* ==========================================================================
        CENTRALIZED DATA CONFIGURATION
        ========================================================================== */
-    const IMAGE_CONFIG = {
-      restaurant: {
-        name: "Le Red Velvet",
-        tagline: "Exquisite Flavors & Crimson Ambience",
-        logoSrc: "gallery/logo.png",
-        aboutText: "Welcome to Le Red Velvet, where culinary mastery meets romantic luxury. Founded in 2018, our kitchen brings together artisanal recipes, prime organic ingredients, and an unforgettable warm ambiance. Every dish is crafted to leave a lasting impression on your palate.",
-        
-        // 🇳🇬 Replace with your actual Nigerian number (starting with 234, no leading 0)
-        whatsappNumber: "2348012345678", 
-        
-        whatsappMessage: "Hello! I would like to place an order from Le Red Velvet."
-      },
+     // 2. Set WhatsApp Link
+      const waUrl = `https://wa.me/${IMAGE_CONFIG.restaurant.whatsappNumber}?text=${encodeURIComponent(IMAGE_CONFIG.restaurant.whatsappMessage)}`;
       
       // ... rest of your IMAGE_CONFIG stays the same ...
 

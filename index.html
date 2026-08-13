@@ -263,8 +263,23 @@
         document.getElementById("year").textContent = new Date().getFullYear();
 
         // 2. Set WhatsApp CTA Link
-        const waUrl = `https://wa.me/+2349047091830}?text=${encodeURIComponent(IMAGE_CONFIG.restaurant.whatsappMessage)}`;
-        document.getElementById("whatsapp-btn").href = waUrl;
+        /* ==========================================================================
+       CENTRALIZED DATA CONFIGURATION
+       ========================================================================== */
+    const IMAGE_CONFIG = {
+      restaurant: {
+        name: "Le Red Velvet",
+        tagline: "Exquisite Flavors & Crimson Ambience",
+        logoSrc: "gallery/logo.png",
+        aboutText: "Welcome to Le Red Velvet, where culinary mastery meets romantic luxury. Founded in 2018, our kitchen brings together artisanal recipes, prime organic ingredients, and an unforgettable warm ambiance. Every dish is crafted to leave a lasting impression on your palate.",
+        
+        // 🇳🇬 Replace with your actual Nigerian number (starting with 234, no leading 0)
+        whatsappNumber: "2348012345678", 
+        
+        whatsappMessage: "Hello! I would like to place an order from Le Red Velvet."
+      },
+      
+      // ... rest of your IMAGE_CONFIG stays the same ...
 
         // 3. Render Carousel Items
         const track = document.getElementById("carousel-track");

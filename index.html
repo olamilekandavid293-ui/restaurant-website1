@@ -1,315 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Le Red Velvet | Fine Dining & Cuisine</title>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Google Fonts for modern typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="style.css"
-    />
-  </head>
-  <body>
-    <!-- Navigation Bar -->
-    <header class="navbar">
-      <div class="nav-container">
-        <a href="#home" class="nav-brand">Le Red Velvet</a>
-        <nav class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#menu">Menu</a>
-          <a href="#about">About</a>
-          <a href="#order">Order</a>
-        </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Savor - Fine Dining</title>
+  
+  <!-- EXTERNAL CSS LINK -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Sticky Navigation Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#whatsapp">Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Container -->
+  <div class="page-container" id="home">
+
+    <!-- SECTION 1: LOGO (TOP) -->
+    <div class="logo-container">
+      <img id="logo-img" class="logo-img" src="" alt="Restaurant Logo">
+    </div>
+
+    <!-- SECTION 2: MENU GALLERY CAROUSEL (12 Images, 3 at a time, 7s loop) -->
+    <section id="gallery" class="glass-card">
+      <h2>Featured Gallery</h2>
+      <div class="carousel-viewport">
+        <div id="carousel-track" class="carousel-track"></div>
       </div>
-    </header>
+    </section>
 
-    <main id="home">
-      <!-- Section 1: Logo Section -->
-      <section class="section logo-section">
-        <div class="glass-card logo-card">
-          <img id="main-logo" class="logo-img" src="" alt="Restaurant Logo" />
-          <h1 id="restaurant-name"></h1>
-          <p id="restaurant-tagline" class="tagline"></p>
-        </div>
-      </section>
+    <!-- SECTION 3: FEATURED MEALS (3x3 Grid) -->
+    <section id="menu" class="glass-card">
+      <h2>Our Featured Menu</h2>
+      <div class="meals-grid" id="meals-container"></div>
+    </section>
 
-      <!-- Section 2: Menu Gallery Carousel (3 images visible, loops 12 images in sets of 3 every 7s) -->
-      <section class="section carousel-section">
-        <h2 class="section-title">Visual Menu Highlights</h2>
-        <div class="carousel-container glass-card">
-          <div class="carousel-track" id="carousel-track">
-            <!-- Dynamically populated carousel items -->
-          </div>
-        </div>
-      </section>
+    <!-- SECTION 4: ABOUT US -->
+    <section id="about" class="glass-card">
+      <h2>About Us</h2>
+      <p style="text-align: center; max-width: 800px; margin: 1rem auto 0;">
+        Welcome to Savor Bistro. We specialize in bringing world-class, artisanal dining right to your palate. 
+        Every dish is meticulously crafted with rich local ingredients, passionate artistry, and culinary perfection.
+      </p>
+    </section>
 
-      <!-- Section 3: Featured Meals Grid (3x3 Layout) -->
-      <section id="menu" class="section meals-section">
-        <h2 class="section-title">Featured Culinary Delights</h2>
-        <div class="meals-grid" id="meals-grid">
-          <!-- Dynamically populated 9 meal cards -->
-        </div>
-      </section>
+    <!-- SECTION 5: ORDER ON WHATSAPP (LAST POSITION) -->
+    <section id="whatsapp" class="glass-card" style="text-align: center;">
+      <h2>Order via WhatsApp</h2>
+      <p style="margin-top: 0.5rem;">Ready to experience true culinary art at home? Place your order directly with our kitchen staff!</p>
+      <!-- Direct link to WhatsApp for +2349047091830 -->
+      <a href="https://wa.me/2349047091830?text=Hello!%20I%20would%20like%20to%20place%20an%20order." target="_blank" class="btn-whatsapp">
+        📲 Order on WhatsApp
+      </a>
+    </section>
 
-      <!-- Section 4: About Us -->
-      <section id="about" class="section about-section">
-        <div class="glass-card about-card">
-          <h2 class="section-title">Our Story</h2>
-          <p id="about-text"></p>
-        </div>
-      </section>
+  </div>
 
-      <!-- Section 5: WhatsApp Ordering -->
-      <section id="order" class="section order-section">
-        <div class="glass-card order-card">
-          <h2>Order Online Directly</h2>
-          <p>
-            Craving our gourmet dishes? Place your instant order via WhatsApp
-            chat for fast takeout or delivery.
-          </p>
-          <a
-            id="whatsapp-btn"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="whatsapp-cta"
-          >
-            <svg
-              class="whatsapp-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              fill="currentColor"
-            >
-              <path
-                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
-              />
-            </svg>
-            Order via WhatsApp
-          </a>
-        </div>
-      </section>
-    </main>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Savor Bistro. All rights reserved.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; <span id="year"></span> Le Red Velvet. All rights reserved.</p>
-    </footer>
+  <!-- CENTRALIZED DATA & SCRIPT CONFIGURATION -->
+  <script>
+    // EDIT ALL IMAGE URLS AND MEAL DATA HERE IN ONE CENTRAL LOCATION:
+    const IMAGE_CONFIG = {
+      // Restaurant Logo
+      logo: "https://via.placeholder.com/180x180/4a000d/ffffff?text=SAVOR+LOGO",
 
-    <!-- Centralized Data Configuration & Script -->
-    <script>
-      /* ==========================================================================
-       CENTRALIZED DATA CONFIGURATION
-       All text, image URLs, prices, and phone details are managed here.
-       ========================================================================== */
-      const IMAGE_CONFIG = {
-        restaurant: {
-          name: "Le Red Velvet",
-          tagline: "Exquisite Flavors & Crimson Ambience",
-          logoUrl:
-            "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=300&q=80",
-          aboutText:
-            "Welcome to Le Red Velvet, where culinary mastery meets romantic luxury. Founded in 2018, our kitchen brings together artisanal recipes, prime organic ingredients, and an unforgettable warm ambiance. Every dish is crafted to leave a lasting impression on your palate.",
-          whatsappNumber: "12345678900", // Replace with actual number including country code
-          whatsappMessage:
-            "Hello! I would like to place an order from Le Red Velvet.",
-        },
+      // 12 Gallery Carousel Items
+      carousel: [
+        { url: "https://via.placeholder.com/300x200/50000d/ffffff?text=Dish+1", title: "Appetizer Special" },
+        { url: "https://via.placeholder.com/300x200/600010/ffffff?text=Dish+2", title: "Seafood Medley" },
+        { url: "https://via.placeholder.com/300x200/700013/ffffff?text=Dish+3", title: "Ribeye Steak" },
+        { url: "https://via.placeholder.com/300x200/800016/ffffff?text=Dish+4", title: "Roasted Duck" },
+        { url: "https://via.placeholder.com/300x200/50000d/ffffff?text=Dish+5", title: "Grilled Salmon" },
+        { url: "https://via.placeholder.com/300x200/600010/ffffff?text=Dish+6", title: "Lamb Chops" },
+        { url: "https://via.placeholder.com/300x200/700013/ffffff?text=Dish+7", title: "Caesar Salad" },
+        { url: "https://via.placeholder.com/300x200/800016/ffffff?text=Dish+8", title: "Lobster Tail" },
+        { url: "https://via.placeholder.com/300x200/50000d/ffffff?text=Dish+9", title: "Chocolate Tart" },
+        { url: "https://via.placeholder.com/300x200/600010/ffffff?text=Dish+10", title: "Tiramisu" },
+        { url: "https://via.placeholder.com/300x200/700013/ffffff?text=Dish+11", title: "Red Wine Reserve" },
+        { url: "https://via.placeholder.com/300x200/800016/ffffff?text=Dish+12", title: "Artisanal Cheese" }
+      ],
 
-        // 12 Images for the automated carousel gallery
-        carouselImages: [
-          {
-            url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
-            alt: "Gourmet Dish 1",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=600&q=80",
-            alt: "Fresh Salad 2",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80",
-            alt: "Artisan Pizza 3",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80",
-            alt: "Dessert Cake 4",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80",
-            alt: "Egg Toast 5",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=600&q=80",
-            alt: "French Toast 6",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80",
-            alt: "Healthy Bowl 7",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80",
-            alt: "Salad Bowl 8",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
-            alt: "Grilled BBQ 9",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80",
-            alt: "Pancakes 10",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80",
-            alt: "Tacos 11",
-          },
-          {
-            url: "https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=600&q=80",
-            alt: "Meatballs 12",
-          },
-        ],
+      // 9 Meal Cards for the 3x3 Grid
+      meals: [
+        { name: "Braised Short Ribs", price: "$34", img: "https://via.placeholder.com/300x200/50000d/ffffff?text=Ribs", desc: "Slow-cooked short ribs served with garlic mashed potatoes." },
+        { name: "Truffle Risotto", price: "$26", img: "https://via.placeholder.com/300x200/600010/ffffff?text=Risotto", desc: "Arborio rice cooked with wild forest mushrooms & truffle oil." },
+        { name: "Pan-Seared Salmon", price: "$28", img: "https://via.placeholder.com/300x200/700013/ffffff?text=Salmon", desc: "Fresh Atlantic salmon paired with lemon herb butter glaze." },
+        { name: "Roasted Duck Breast", price: "$30", img: "https://via.placeholder.com/300x200/800016/ffffff?text=Duck", desc: "Crispy skin duck breast drizzled with plum wine sauce." },
+        { name: "Lobster Tail Supreme", price: "$42", img: "https://via.placeholder.com/300x200/50000d/ffffff?text=Lobster", desc: "Butter-poached lobster tail served with garlic asparagus." },
+        { name: "Prime Ribeye Steak", price: "$38", img: "https://via.placeholder.com/300x200/600010/ffffff?text=Steak", desc: "Aged 28 days, seared to perfection with rosemary butter." },
+        { name: "Artisanal Cheese Board", price: "$20", img: "https://via.placeholder.com/300x200/700013/ffffff?text=Cheese", desc: "A curated selection of fine cheeses, roasted nuts, and honey." },
+        { name: "Decadent Chocolate Tart", price: "$14", img: "https://via.placeholder.com/300x200/800016/ffffff?text=Tart", desc: "Dark ganache in a cocoa crust topped with fresh raspberry." },
+        { name: "Classic Tiramisu", price: "$12", img: "https://via.placeholder.com/300x200/50000d/ffffff?text=Tiramisu", desc: "Espresso-soaked ladyfingers layered with rich mascarpone." }
+      ]
+    };
 
-        // 9 Featured Meals for the 3x3 Grid
-        featuredMeals: [
-          {
-            title: "Prime Ribeye Steak",
-            price: "$38.00",
-            description:
-              "Aged grass-fed ribeye grilled with garlic rosemary butter and red wine reduction.",
-            image:
-              "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80",
-          },
-          {
-            title: "Truffle Mushroom Pasta",
-            price: "$26.00",
-            description:
-              "Handcrafted fettuccine tossed in rich black truffle cream and wild mushrooms.",
-            image:
-              "https://images.unsplash.com/photo-1621996346565-e3d5d6281313?auto=format&fit=crop&w=600&q=80",
-          },
-          {
-            title: "Seared Salmon Supreme",
-            price: "$32.00",
-            description:
-              "Pan-seared Atlantic salmon served over asparagus beds with lemon dill glaze.",
-            image:
-              "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80",
-          },
-          {
-            title: "Classic Wagyu Burger",
-            price: "$24.00",
-            description:
-              "Juicy Wagyu beef patty, smoked cheddar, caramelized onions, and truffle aioli.",
-            image:
-              "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
-          },
-          {
-            title: "Lobster Thermidor",
-            price: "$45.00",
-            description:
-              "Fresh lobster tail baked with cognac, mustard cream sauce, and Gruyère cheese.",
-            image:
-              "https://images.unsplash.com/photo-1553240799-36bbf332a5c3?auto=format&fit=crop&w=600&q=80",
-          },
-          {
-            title: "Crimson Velvet Salad",
-            price: "$18.00",
-            description:
-              "Roasted beets, goat cheese, baby arugula, walnuts, and pomegranate vinaigrette.",
-            image:
-              "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80",
-          },
-          {
-            title: "Artisanal Woodfire Pizza",
-            price: "$22.00",
-            description:
-              "San Marzano tomato base, fresh mozzarella di bufala, prosciutto, and basil.",
-            image:
-              "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80",
-          },
-          {
-            title: "Signature Molten Lava Cake",
-            price: "$14.00",
-            description:
-              "Warm dark chocolate cake with a gooey center, paired with vanilla bean gelato.",
-            image:
-              "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80",
-          },
-          {
-            title: "Berry Sparkler Cocktails",
-            price: "$16.00",
-            description:
-              "Craft cocktail with muddled raspberries, prosecco, fresh mint, and elderflower.",
-            image:
-              "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
-          },
-        ],
-      };
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Populate Logo Image
+      document.getElementById("logo-img").src = IMAGE_CONFIG.logo;
 
-      /* ==========================================================================
-       DYNAMIC POPULATION & CAROUSEL LOGIC
-       ========================================================================== */
-      document.addEventListener("DOMContentLoaded", () => {
-        // 1. Set General Text & Logo
-        document.getElementById("main-logo").src =
-          IMAGE_CONFIG.restaurant.logoUrl;
-        document.getElementById("restaurant-name").textContent =
-          IMAGE_CONFIG.restaurant.name;
-        document.getElementById("restaurant-tagline").textContent =
-          IMAGE_CONFIG.restaurant.tagline;
-        document.getElementById("about-text").textContent =
-          IMAGE_CONFIG.restaurant.aboutText;
-        document.getElementById("year").textContent = new Date().getFullYear();
+      // 2. Build 12 Carousel Items Dynamically
+      const track = document.getElementById("carousel-track");
+      IMAGE_CONFIG.carousel.forEach(item => {
+        const slide = document.createElement("div");
+        slide.className = "carousel-slide";
+        slide.innerHTML = `
+          <img class="carousel-img" src="${item.url}" alt="${item.title}">
+          <div class="carousel-caption">${item.title}</div>
+        `;
+        track.appendChild(slide);
+      });
 
-        // 2. Set WhatsApp CTA Link
-        /* ==========================================================================
-       CENTRALIZED DATA CONFIGURATION
-       ========================================================================== */
-     // 2. Set WhatsApp Link
-      const waUrl = `https://wa.me/${IMAGE_CONFIG.restaurant.whatsappNumber}?text=${encodeURIComponent(IMAGE_CONFIG.restaurant.whatsappMessage)}`;
-      
-      // ... rest of your IMAGE_CONFIG stays the same ...
+      // Automated Carousel Loop (Moves 3 items every 7 seconds = 4 total steps for 12 items)
+      let currentIndex = 0;
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % 4; // 12 items / 3 per view = 4 sets
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }, 7000);
 
-        // 3. Render Carousel Items
-        const track = document.getElementById("carousel-track");
-        IMAGE_CONFIG.carouselImages.forEach((imgObj) => {
-          const item = document.createElement("div");
-          item.className = "carousel-item";
-          item.innerHTML = `<img src="${imgObj.url}" alt="${imgObj.alt}">`;
-          track.appendChild(item);
-        });
-
-        // Automated Carousel Logic: Shifts 3 images at a time every 7s
-        let currentIndex = 0; // 0, 3, 6, 9
-        const totalImages = IMAGE_CONFIG.carouselImages.length; // 12
-
-        setInterval(() => {
-          currentIndex = (currentIndex + 3) % totalImages;
-          // On desktop each image takes 1/3 space + gap compensation
-          // Transition shift percentage: (currentIndex / 3) * 100% of container length
-          const shiftPercent = (currentIndex / 3) * 100;
-          track.style.transform = `translateX(-${shiftPercent}%)`;
-        }, 7000);
-
-        // 4. Render Featured Meals Grid (3x3 Layout)
-        const mealsGrid = document.getElementById("meals-grid");
-        IMAGE_CONFIG.featuredMeals.forEach((meal) => {
-          const card = document.createElement("article");
-          card.className = "glass-card meal-card";
-          card.innerHTML = `
-          <div class="meal-img-wrapper">
-            <img src="${meal.image}" alt="${meal.title}">
-            <span class="price-badge">${meal.price}</span>
-          </div>
-          <div class="meal-details">
-            <h3>${meal.title}</h3>
-            <p>${meal.description}</p>
+      // 3. Populate 9 Meal Cards (3x3 Grid)
+      const mealsContainer = document.getElementById("meals-container");
+      IMAGE_CONFIG.meals.forEach(meal => {
+        mealsContainer.innerHTML += `
+          <div class="meal-card">
+            <img class="meal-img" src="${meal.img}" alt="${meal.name}">
+            <div class="meal-header">
+              <span>${meal.name}</span>
+              <span class="meal-price">${meal.price}</span>
+            </div>
+            <p class="meal-desc">${meal.desc}</p>
           </div>
         `;
-          mealsGrid.appendChild(card);
-        });
       });
-    </script>
-  </body>
+    });
+  </script>
+
+</body>
 </html>

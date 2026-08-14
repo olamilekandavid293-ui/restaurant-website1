@@ -1,348 +1,268 @@
-/* ==========================================================================
-   1. CSS VARIABLES & RESET
-   ========================================================================== */
+/* ==========================================
+   1. GLOBAL CONFIGURATION & CUSTOM VARIABLES
+   ========================================== */
 :root {
-  /* Dynamic Carousel Adjustments */
-  --carousel-height: 260px;
-  --carousel-gap: 20px;
-
-  /* Theme Color Palette */
-  --bg-dark: #1a0003;
-  --bg-mid: #4a000d;
-  --bg-bright: #8b0000;
-  --glass-bg: rgba(25, 5, 10, 0.55);
-  --glass-border: rgba(255, 77, 77, 0.25);
-  --glass-border-hover: rgba(255, 120, 120, 0.6);
-  --glow-shadow: 0 0 25px rgba(230, 30, 30, 0.6);
-  --text-main: #fcfcfc;
-  --text-muted: #e0d0d2;
-  --whatsapp-green: #25d366;
-  --whatsapp-hover: #1ebd5b;
+  /* Easily customize carousel and image dimensions */
+  --carousel-height: 180px;        
+  --carousel-gap: 16px;            
+  --carousel-img-radius: 12px;
 }
 
-/* Base Reset */
+/* Reset default margins, paddings, and box sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* Base Body Setup: Fixed upward linear gradient (Deep Wine Red to Bright Red) */
 body {
-  font-family: "Poppins", sans-serif;
-  color: var(--text-main);
-  /* Fixed Linear Gradient pointing upwards */
-  background: linear-gradient(
-    0deg,
-    var(--bg-dark) 0%,
-    var(--bg-mid) 50%,
-    var(--bg-bright) 100%
-  );
+  color: #ffffff;
+  background: linear-gradient(to top, #1a0003, #4a000d, #8b0000);
   background-attachment: fixed;
   min-height: 100vh;
   line-height: 1.6;
 }
 
-h1,
-h2,
-h3 {
-  font-family: "Playfair Display", serif;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* ==========================================================================
-   2. GLASSMORPHISM COMMON STYLES & UNIVERSAL IMAGE HOVER
-   ========================================================================== */
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.glass-card:hover {
-  border-color: var(--glass-border-hover);
-}
-
-/* 
-   UNIVERSAL IMAGE HOVER EFFECT:
-   Applies scaling, increased brightness, and soft red glow shadow to ALL images
-*/
+/* ==========================================
+   2. UNIVERSAL IMAGE HOVER EFFECT
+   ========================================== */
+/* Smooth zoom, brightness boost, and red glow on cursor hover for ALL images */
 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  transition:
-    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-    filter 0.4s ease,
-    box-shadow 0.4s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              filter 0.3s ease, 
+              box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 img:hover {
-  transform: scale(1.05);
-  filter: brightness(1.15);
-  box-shadow: var(--glow-shadow);
+  transform: scale(1.05); /* Scales image up slightly */
+  filter: brightness(1.15); /* Brightens image */
+  box-shadow: 0 8px 25px rgba(255, 77, 90, 0.4); /* Red ambient glow */
 }
 
-/* Layout Container */
-.section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 20px;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.3rem;
-  margin-bottom: 40px;
-  letter-spacing: 1px;
-}
-
-/* ==========================================================================
+/* ==========================================
    3. NAVIGATION BAR
-   ========================================================================== */
-.navbar {
+   ========================================== */
+header {
   position: sticky;
   top: 0;
+  background: rgba(20, 0, 5, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 1rem 5%;
   z-index: 1000;
-  background: rgba(15, 0, 3, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
+nav ul {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 20px;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
 }
 
-.nav-brand {
-  font-family: "Playfair Display", serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-}
-
-.nav-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  margin-left: 25px;
-  font-weight: 400;
+nav a:hover {
+  color: #ff99a8;
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #fff;
+/* ==========================================
+   4. LAYOUT & GLASSMORPHISM CARDS
+   ========================================== */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
 }
 
-/* ==========================================================================
-   4. SECTION 1: LOGO & HEADER
-   ========================================================================== */
-.logo-section {
+/* Glassmorphism Card Container */
+.glass-card {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* ==========================================
+   5. SECTION 1: LOGO STYLING
+   ========================================== */
+.logo-container {
   text-align: center;
-  padding-top: 40px;
+  margin-top: 1rem;
 }
 
-.logo-card {
-  display: inline-block;
-  max-width: 500px;
-  width: 100%;
-}
-
-/* Distinct logo image class */
+/* Distinct Class for Logo Image */
 .logo-img {
-  width: 130px;
-  height: 130px;
+  max-width: 160px;
+  height: auto;
   border-radius: 50%;
-  margin-bottom: 15px;
-  border: 2px solid var(--glass-border);
+  border: 2px solid rgba(255, 204, 213, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
 }
 
-.tagline {
-  color: var(--text-muted);
-  font-style: italic;
-  margin-top: 5px;
-}
-
-/* ==========================================================================
-   5. SECTION 2: MENU GALLERY CAROUSEL (3 At a Time)
-   ========================================================================== */
-.carousel-container {
+/* ==========================================
+   6. SECTION 2: MENU CAROUSEL STYLES
+   ========================================== */
+.carousel-viewport {
+  width: 100%;
   overflow: hidden;
-  padding: 20px;
+  border-radius: var(--carousel-img-radius);
+  margin-top: 1.5rem;
 }
 
 .carousel-track {
   display: flex;
   gap: var(--carousel-gap);
-  transition: transform 0.8s cubic-bezier(0.45, 0, 0.15, 1);
+  transition: transform 0.8s ease-in-out;
+  will-change: transform;
 }
 
-.carousel-item {
-  /* Calculated width so 3 full items fit seamlessly inside the track */
+.carousel-slide {
+  /* Calculates exactly 3 items visible per view minus the gap spacing */
   flex: 0 0 calc((100% - (var(--carousel-gap) * 2)) / 3);
-  height: var(--carousel-height);
+  position: relative;
+  border-radius: var(--carousel-img-radius);
   overflow: hidden;
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.6);
 }
 
-/* ==========================================================================
-   6. SECTION 3: FEATURED MEALS (3x3 GRID)
-   ========================================================================== */
+.carousel-img {
+  width: 100%;
+  height: var(--carousel-height);
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  padding: 0.6rem 0.2rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #ffccd5;
+  text-align: center;
+}
+
+/* ==========================================
+   7. SECTION 3: 3x3 FEATURED MEALS GRID
+   ========================================== */
 .meals-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr); /* Enforces 3 columns on desktop */
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .meal-card {
-  padding: 18px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-.meal-img-wrapper {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
-  border-radius: 12px;
+.meal-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
-.price-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(0, 0, 0, 0.75);
-  border: 1px solid var(--glass-border);
-  color: #fff;
-  padding: 6px 14px;
+.meal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #ffccd5;
+  margin-bottom: 0.5rem;
+}
+
+.meal-price {
+  background: #8b0000;
+  padding: 0.25rem 0.75rem;
   border-radius: 20px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  backdrop-filter: blur(4px);
-  z-index: 2;
+  font-size: 0.85rem;
+  color: #ffffff;
 }
 
-.meal-details {
-  margin-top: 18px;
-  flex-grow: 1;
+.meal-desc {
+  font-size: 0.85rem;
+  color: #dddddd;
 }
 
-.meal-details h3 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-}
-
-.meal-details p {
-  color: var(--text-muted);
-  font-size: 0.92rem;
-}
-
-/* ==========================================================================
-   7. SECTION 4 & 5: ABOUT US & WHATSAPP ORDERING
-   ========================================================================== */
-.about-card {
+/* ==========================================
+   8. HEADINGS, BUTTONS & FOOTER
+   ========================================== */
+h2 {
+  font-size: 1.8rem;
+  color: #ffccd5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
-.order-card {
-  text-align: center;
-  max-width: 650px;
-  margin: 0 auto;
-}
-
-.order-card p {
-  color: var(--text-muted);
-  margin: 15px 0 25px 0;
-}
-
-.whatsapp-cta {
+.btn-whatsapp {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background-color: var(--whatsapp-green);
+  justify-content: center;
+  gap: 0.5rem;
+  background: #25D366; /* Official WhatsApp Green */
   color: #fff;
-  text-decoration: none;
-  padding: 14px 28px;
+  padding: 0.9rem 1.8rem;
   border-radius: 30px;
-  font-weight: 600;
-  font-size: 1.05rem;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  font-weight: bold;
+  margin-top: 1.2rem;
+  transition: background 0.3s ease, transform 0.2s;
 }
 
-.whatsapp-cta:hover {
-  background-color: var(--whatsapp-hover);
+.btn-whatsapp:hover {
+  background: #20ba5a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
-.whatsapp-icon {
-  width: 22px;
-  height: 22px;
-}
-
-/* ==========================================================================
-   8. FOOTER
-   ========================================================================== */
-.footer {
+footer {
   text-align: center;
-  padding: 30px 20px;
-  border-top: 1px solid var(--glass-border);
-  color: var(--text-muted);
+  padding: 2rem;
+  background: rgba(10, 0, 3, 0.9);
   font-size: 0.9rem;
-  background: rgba(10, 0, 2, 0.8);
+  color: #aaa;
+  margin-top: 3rem;
 }
 
-/* ==========================================================================
-   9. RESPONSIVE MEDIA QUERIES (MOBILE BREAKPOINTS)
-   ========================================================================== */
+/* ==========================================
+   9. RESPONSIVE BREAKPOINTS (MOBILE & TABLET)
+   ========================================== */
 @media (max-width: 900px) {
   .meals-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
   }
 }
 
-@media (max-width: 650px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .nav-links a {
-    margin: 0 10px;
-  }
-
-  /* Responsive Carousel: Display 1 item at a time on mobile */
-  .carousel-item {
-    flex: 0 0 100%;
-  }
-
-  /* Responsive 1-Column Grid Stack for Mobile */
+@media (max-width: 600px) {
   .meals-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stacks to 1 column on mobile */
   }
-
-  .section-title {
-    font-size: 1.8rem;
+  
+  .carousel-slide {
+    flex: 0 0 100%; /* Shows 1 carousel image at a time on small phones */
   }
 }
